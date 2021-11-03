@@ -1,26 +1,19 @@
-#include <algorithm>
-#include <chrono>
-#include <iostream>
-#include <vector>
-using namespace std;
-using namespace std::chrono;
+
 
 class BinomialCoefficient {
 public:
 
-    int DandCSolution(int n, int k) {
+    int DandCAlgorithm(int n, int k) {
         if (k == 0 || k == n) {
             return 1;
         }
         else {
-            return (DandCSolution(n-1, k) + DandCSolution(n-1, k-1));
+            return (DandCAlgorithm(n-1, k) + DandCAlgorithm(n-1, k-1));
         }
         return n+k;
     }
 
-    int DynamicSolution(){}
-
-    int Memo(int n, int k) {
+    int MemoAlgorithm(int n, int k) {
         int** dp; // make a temporary lookup table
         dp = new int*[n + 1];
     
@@ -38,6 +31,8 @@ public:
     
         return binomialCoeffUtil(n, k, dp);
     }
+
+    int DynamicProgrammingAlgorithm(int n, int k){}
 
 private:
 
@@ -105,13 +100,15 @@ private:
 
 
 
+    // BinomialCoefficient computation;
+
     // auto start = chrono::high_resolution_clock::now(); // Starting timer
     // ios_base::sync_with_stdio(false); // Unsync IO of C and C++
 
-    // int result = computation.DandCSolution(n, k);
+    // int result = computation.Memo(n, k);
 
     // auto end = chrono::high_resolution_clock::now(); // Ending the timer
     // double time_taken = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-    // // time_taken *= 1e-9; // Nano * 10^-9 = seconds
+    // time_taken *= 1e-9; // Nano * 10^-9 = seconds
 
-    // cout << "Divide and Conquer(" << n << ", " << k << ") = "<< result <<  "     Time taken: " << fixed << time_taken <<" seconds" << endl; 
+    // cout << "Memo(" << n << ", " << k << ") = "<< result <<  "     Time taken: " << fixed << time_taken <<" seconds" << endl; 

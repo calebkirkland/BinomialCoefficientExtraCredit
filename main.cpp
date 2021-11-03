@@ -8,34 +8,55 @@ using namespace std::chrono;
 
 void DandC (int n, int k) {
     BinomialCoefficient computation;
- 
-    auto t1 = high_resolution_clock::now();
-    int result = computation.DandCSolution(n, k);
-    auto t2 = high_resolution_clock::now();
 
-    auto ms_int = duration_cast<milliseconds>(t2 - t1);
-    /* Getting number of milliseconds as a double. */
-    duration<double, std::milli> ms_double = t2 - t1;
-    cout << "Divide and Conquer(" << n << ", " << k << ") = "<< result << "    Time Taken: " << ms_double.count() << " ms" << endl;
+    auto start = chrono::steady_clock::now(); // Starting timer
+    ios_base::sync_with_stdio(false); // Unsync IO of C and C++
+
+    int result = computation.DandCAlgorithm(n, k);
+
+    auto end = chrono::steady_clock::now(); // Ending the timer
+    double time_taken = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
+    time_taken *= 1e-9; // Nano * 10^-9 = seconds
+
+    cout << "Divide and Conquer(" << n << ", " << k << ") = "<< result <<  "     Time taken: " << fixed << time_taken << " seconds" << endl; 
 }
 
 void Memo (int n, int k) {
     BinomialCoefficient computation;
 
-    auto t1 = high_resolution_clock::now();
-    int result = computation.Memo(n, k);
-    auto t2 = high_resolution_clock::now();
+    auto start = chrono::steady_clock::now(); // Starting timer
+    ios_base::sync_with_stdio(false); // Unsync IO of C and C++
 
-    auto ms_int = duration_cast<milliseconds>(t2 - t1);
-    /* Getting number of milliseconds as a double. */
-    duration<double, std::milli> ms_double = t2 - t1;
-    cout << "Memo(" << n << ", " << k << ") = " << result << "    Time Taken: " << ms_double.count() << " ms" << endl;
+    int result = computation.MemoAlgorithm(n, k);
+
+    auto end = chrono::steady_clock::now(); // Ending the timer
+    double time_taken = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
+    time_taken *= 1e-9; // Nano * 10^-9 = seconds
+
+    cout << "Memoization(" << n << ", " << k << ")        = "<< result <<  "     Time taken: " << fixed << time_taken << " seconds" << endl; 
 }
 
+void DynamicProgramming(int n, int k) {
+    BinomialCoefficient computation;
+
+    auto start = chrono::steady_clock::now(); // Starting timer
+    ios_base::sync_with_stdio(false); // Unsync IO of C and C++
+
+    int result = computation.DynamicProgrammingAlgorithm(n, k);
+
+    auto end = chrono::steady_clock::now(); // Ending the timer
+    double time_taken = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
+    time_taken *= 1e-9; // Nano * 10^-9 = seconds
+
+    cout << "Dynamic Programming(" << n << ", " << k << ")        = "<< result <<  "     Time taken: " << fixed << time_taken << " seconds" << endl; 
+
+}
 
 int main() {
-    DandC(42,4);
-    Memo(42, 4);
+
+
+    DandC(52, 5);
+    Memo(52, 5);
 
 
     return 0;
