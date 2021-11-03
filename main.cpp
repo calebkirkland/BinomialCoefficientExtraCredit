@@ -1,3 +1,8 @@
+// Caleb Kirkland
+// Intro to Algorithms Extra Credit 2
+// 11/3/21
+// Made with Visual Studio Code and GCC
+
 #include "binomial.h"
 #include <algorithm>
 #include <chrono>
@@ -54,10 +59,8 @@ void DynamicProgramming(int n, int k) {
 
 int main() {
 
-
     DandC(52, 5);
     Memo(52, 5);
-
 
     return 0;
 }
