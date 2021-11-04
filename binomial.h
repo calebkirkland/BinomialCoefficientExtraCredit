@@ -1,5 +1,3 @@
-
-
 class BinomialCoefficient {
 public:
 
@@ -13,6 +11,8 @@ public:
         return n+k;
     }
 
+    int DynamicProgrammingAlgorithm(int n, int k){}
+    
     int MemoAlgorithm(int n, int k) {
         int** dp; // make a temporary lookup table
         dp = new int*[n + 1];
@@ -31,9 +31,6 @@ public:
     
         return binomialCoeffUtil(n, k, dp);
     }
-
-    int DynamicProgrammingAlgorithm(int n, int k){}
-
 private:
 
     int binomialCoeffUtil(int n, int k, int** dp) {
@@ -58,57 +55,4 @@ private:
                 binomialCoeffUtil(n - 1, k, dp);
         return dp[n][k];
     }
-
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // auto start = chrono::high_resolution_clock::now();
-    // // unsync the I/O of C and C++.
-    // ios_base::sync_with_stdio(false);
-
-
-    // auto end = chrono::high_resolution_clock::now();
-    // // Calculating total time taken by the program.
-    // double time_taken = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-    // time_taken *= 1e-9;
-    // cout << "      " << fixed  << time_taken;
-
-
-
-
-    // BinomialCoefficient computation;
-
-    // auto start = chrono::high_resolution_clock::now(); // Starting timer
-    // ios_base::sync_with_stdio(false); // Unsync IO of C and C++
-
-    // int result = computation.Memo(n, k);
-
-    // auto end = chrono::high_resolution_clock::now(); // Ending the timer
-    // double time_taken = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
-    // time_taken *= 1e-9; // Nano * 10^-9 = seconds
-
-    // cout << "Memo(" << n << ", " << k << ") = "<< result <<  "     Time taken: " << fixed << time_taken <<" seconds" << endl; 
