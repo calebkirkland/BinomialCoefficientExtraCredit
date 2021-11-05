@@ -28,7 +28,7 @@ void Dynamic(int n, int k) {
     auto start = std::chrono::high_resolution_clock::now();
     std::ios_base::sync_with_stdio(false);
 
-    unsigned int result = computation.DynamicProgrammingAlgorithm(n, k);
+    unsigned int result = computation.DynamicAlgorithm(n, k);
 
     auto end = std::chrono::high_resolution_clock::now();
     double time_taken = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
@@ -55,8 +55,8 @@ void Memo (int n, int k) {
 int main() {
 
     DandC(52, 5);
-    Memo(52, 5);
     Dynamic(52, 5);
+    Memo(52, 5);
 
     return 0;
 }

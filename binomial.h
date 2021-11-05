@@ -11,8 +11,13 @@ public:
         return n+k;
     }
 
-    int DynamicProgrammingAlgorithm(int n, int k){
-        return n+k;
+    int DynamicAlgorithm(int n, int k) {
+        if (k == 0 || k == n) {
+            return 1;
+        }
+        else {
+            return DynamicAlgorithm(n-1,k-1) + DynamicAlgorithm(n-1,k);
+        }
     }
     
     int MemoAlgorithm(int n, int k) {
