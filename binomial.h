@@ -11,7 +11,9 @@ public:
         return n+k;
     }
 
-    int DynamicProgrammingAlgorithm(int n, int k){}
+    int DynamicProgrammingAlgorithm(int n, int k){
+        return n+k;
+    }
     
     int MemoAlgorithm(int n, int k) {
         int** dp; // make a temporary lookup table
