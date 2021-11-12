@@ -19,7 +19,7 @@ void DandC (int n, int k) {
     double time_taken = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); // Putting the time value in a double
     time_taken *= 1e-9; // Nano * 10^-9 = seconds
 
-    std::cout << "Divide and Conquer(" << n << ", " << k << ") = "<< result <<  "     Time taken: " << fixed << time_taken << " seconds" << endl; 
+    std::cout << "Divide and Conquer(" << n << ", " << k << ")      = "<< result <<  "     Time taken: " << fixed << time_taken << " seconds" << endl; 
 }
 
 void Dynamic(int n, int k) {
@@ -49,7 +49,7 @@ void Memo (int n, int k) {
     double time_taken = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
     time_taken *= 1e-9;
 
-    cout << "Memoization(" << n << ", " << k << ")        = "<< result <<  "     Time taken: " << fixed << time_taken << " seconds" << endl; 
+    cout << "Memoization(" << n << ", " << k << ")             = "<< result <<  "     Time taken: " << fixed << time_taken << " seconds" << endl; 
 }
 
 int main() {
@@ -57,6 +57,14 @@ int main() {
     DandC(52, 5);
     Dynamic(52, 5);
     Memo(52, 5);
+
+    DandC(70, 5);
+    Dynamic(70, 5);
+    Memo(70, 5);
+
+    DandC(100, 6);
+    Dynamic(100, 4);
+    Memo(100, 4);
 
     return 0;
 }
